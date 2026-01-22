@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio profesional dengan animasi modern dan interaktif">
+    <title>Portfolio - Creative Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-text">Portfolio</span>
+                <span class="logo-bracket">/&gt;</span>
+            </a>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="animated-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="greeting">Hi, I'm</span>
+                    <span class="name">
+                        <span class="name-text">Zain Ammar</span>
+                        <span class="cursor">_</span>
+                    </span>
+                </h1>
+                <div class="hero-subtitle">
+                    <span class="typing-text">I'm a </span>
+                    <span class="typed-output"></span>
+                </div>
+                <p class="hero-description">
+                    Creating innovative digital experiences with passion and precision.
+                    Transforming ideas into beautiful, functional websites.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>View My Work</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Get In Touch</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="floating-card card-1">
+                    <div class="card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <div class="card-text">Web Dev</div>
+                </div>
+                <div class="floating-card card-2">
+                    <div class="card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 19l7 2-2.11-5.78L22 10l-5.89-.61L14 4l-2.11 5.39L6 10l5.11 5.22L9 21z"></path>
+                        </svg>
+                    </div>
+                    <div class="card-text">UI/UX</div>
+                </div>
+                <div class="floating-card card-3">
+                    <div class="card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                    </div>
+                    <div class="card-text">Fast</div>
+                </div>
+                <div class="profile-shape">
+                    <img src="profile-photo.jpg" alt="Zain Ammar" class="profile-photo">
+                    <div class="shape-inner"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <p>Scroll Down</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Who Am I</span>
+                <h2 class="section-title">About Me</h2>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <h3 class="about-subtitle">Passionate Developer & Designer</h3>
+                    <p>
+                        I'm a creative developer with a passion for building beautiful,
+                        functional, and user-centered digital experiences. With expertise
+                        in modern web technologies, I bring ideas to life through clean code
+                        and stunning design.
+                    </p>
+                    <p>
+                        Every project is an opportunity to learn something new and push
+                        the boundaries of what's possible. I believe in creating solutions
+                        that not only look great but also solve real problems.
+                    </p>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="50">0</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="30">0</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="5">0</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-image">
+                    <div class="image-wrapper">
+                        <img src="profile.jpg" alt="Profile Photo" class="about-profile-photo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">My Journey</span>
+                <h2 class="section-title">Work Experience</h2>
+            </div>
+
+            <div class="experience-timeline">
+                <!-- Experience 1: Telkomsel -->
+                <div class="experience-card">
+                    <div class="experience-icon telkomsel-icon">
+                        <img src="telkomsel-t.png" alt="Telkomsel Logo" class="company-logo">
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-title">UI/UX Researcher Intern</h3>
+                                <p class="experience-company">Telkomsel</p>
+                            </div>
+                            <span class="experience-duration">Sep 2024 - Dec 2024</span>
+                        </div>
+                        <p class="experience-description">
+                            Led research on Digital Smart Care (DSC) application, identifying 54 new capabilities
+                            while analyzing user pain points through interviews with IPTV agents and users. Collaborated
+                            with stakeholders to align Business Requirements with operational needs and delivered
+                            comprehensive DSC V2 documentation. Featured as talent in Telkomsel's product videos and
+                            speaker at "Let's talk about Figma" event.
+                        </p>
+                        <div class="experience-tags">
+                            <span class="tag">User Research</span>
+                            <span class="tag">Product Analysis</span>
+                            <span class="tag">Stakeholder Management</span>
+                            <span class="tag">Documentation</span>
+                            <span class="tag">Public Speaking</span>
+                            <span class="tag">Figma</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 2: Telkom University Jakarta -->
+                <div class="experience-card">
+                    <div class="experience-icon telkom-icon">
+                        <img src="telkom-university-logo.png" alt="Telkom University Logo" class="company-logo">
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-title">Manager YouTube Campus Life Marketing</h3>
+                                <p class="experience-company">Marketing Crew - Telkom University Jakarta</p>
+                            </div>
+                            <span class="experience-duration">Nov 2022 - Nov 2025</span>
+                        </div>
+                        <p class="experience-description">
+                            Created and analyzed YouTube engagement content reports monthly while developing 3 content
+                            series (Tanya TelUtizen, Cerita Mahasiswa & Campus Life). Featured as content talent
+                            achieving 1M+ views and 61.2K+ likes across Reels, TikTok, and YouTube. Managed content
+                            planner execution and trend analysis while supporting Flyering and Campus Expo
+                            initiatives.<br>
+                            <strong>Achievement: Best Manager Digital Team (August 2023)</strong>.
+                        </p>
+                        <div class="experience-tags">
+                            <span class="tag">Content Strategy</span>
+                            <span class="tag">Social Media</span>
+                            <span class="tag">Content Creation</span>
+                            <span class="tag">Trend Analysis</span>
+                            <span class="tag">Team Collaboration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 3: BCA Digital -->
+                <div class="experience-card">
+                    <div class="experience-icon bca-icon">
+                        <img src="blu-logo.png" alt="blu by BCA Digital Logo" class="company-logo">
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-title">Blu Ambassador</h3>
+                                <p class="experience-company">BCA Digital (blu by BCA Digital)</p>
+                            </div>
+                            <span class="experience-duration">2023 - 2024</span>
+                        </div>
+                        <p class="experience-description">
+                            Educated Telkom University students and public about blu digital banking benefits and usage.
+                            Participated in comprehensive brand knowledge training and workshops, developing expertise
+                            in digital financial services while promoting financial literacy through campus engagement
+                            and community outreach programs.
+                        </p>
+                        <div class="experience-tags">
+                            <span class="tag">Brand Ambassador</span>
+                            <span class="tag">Event Management</span>
+                            <span class="tag">Digital Marketing</span>
+                            <span class="tag">Community Building</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">My Work</span>
+                <h2 class="section-title">Featured Projects</h2>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <img src="xena-preview.png" alt="XENA Work Order Management System"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="tag">Figma</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">Tailwind CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <h3 class="project-title">XENA - Work Order Management System</h3>
+                        <p class="project-description">
+                            A redesigned work order management system from Telkomsel internship project, currently
+                            developed as final thesis with enhanced UI/UX and operational efficiency features.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <img src="mcorder-preview.png" alt="MCORDER - McDonald's Ordering System"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="tag">Laravel</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">Tailwind CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Agile Scrum</span>
+                        </div>
+                        <h3 class="project-title">MCORDER - Non-Raw Material Ordering System</h3>
+                        <p class="project-description">
+                            Web-based ordering system for McDonald's Manager Stock and Vendors to streamline non-raw
+                            material procurement with structured documentation. Developed using Agile Scrum methodology
+                            for Capstone Design course.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <img src="dashboard-order.png" alt="Dashboard Order - Telkomsel"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="tag">Figma</span>
+                            <span class="tag">UI Design</span>
+                            <span class="tag">Dashboard Design</span>
+                        </div>
+                        <h3 class="project-title">Dashboard Order - Order Monitoring</h3>
+                        <p class="project-description">
+                            UI Design work creating an order dashboard to monitor orders in each Telkomsel area.
+                            Designed comprehensive monitoring interface with data visualization using Figma.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <img src="dsc-research.png" alt="Digital Smart Care Research"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="tag">User Research</span>
+                            <span class="tag">UX Research</span>
+                            <span class="tag">Interview</span>
+                            <span class="tag">Field Observation</span>
+                        </div>
+                        <h3 class="project-title">DSC Research - IndiHome Migration Study</h3>
+                        <p class="project-description">
+                            UX Research project identifying pain points from IndiHome to Telkomsel migration and Digital
+                            Smart Care system used by Grapari front office. Discovered 54 new capabilities through
+                            comprehensive interviews and field observations.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <img src="ramayana-app.png" alt="Ramayana E-Commerce App"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="tag">Figma</span>
+                            <span class="tag">UML</span>
+                            <span class="tag">Miro</span>
+                            <span class="tag">User Research</span>
+                            <span class="tag">Google Forms</span>
+                        </div>
+                        <h3 class="project-title">Ramayana App - E-Commerce Platform</h3>
+                        <p class="project-description">
+                            Complete UX Research and UI/UX Design project for Ramayana's digital transformation.
+                            Identified pain points in offline-only sales model and designed comprehensive e-commerce
+                            solution with UML documentation for Interaction Design course.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Contact Me</h2>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's work together!</h3>
+                    <p>
+                        I'm always interested in hearing about new projects and opportunities.
+                        Whether you have a question or just want to say hi, feel free to reach out!
+                    </p>
+
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="method-details">
+                                <span class="method-label">Email</span>
+                                <a href="mailto:zain.falih2003@gmail.com">zain.falih2003@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="method-details">
+                                <span class="method-label">Phone</span>
+                                <a href="tel:+1234567890">+62 851 5686 4662</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="method-details">
+                                <span class="method-label">Location</span>
+                                <span>Jakarta, Indonesia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://github.com/zaainamr" class="social-link" aria-label="GitHub" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/zainammarfalih" class="social-link" aria-label="LinkedIn"
+                            target="_blank" rel="noopener noreferrer">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <form class="contact-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Your message..."
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary submit-btn">
+                        <span>Send Message</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M18 2L9 11M18 2l-6 16-3-7-7-3 16-6z" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Portfolio. Designed & Built with ❤️</p>
+                <div class="footer-links">
+                    <a href="#home">Back to Top</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
