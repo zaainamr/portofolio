@@ -301,30 +301,184 @@ document.addEventListener('mousemove', (e) => {
 });
 
 // ===================================
-// PROJECT CARDS TILT EFFECT
+// PROJECTS CAROUSEL
 // ===================================
 
-const projectCards = document.querySelectorAll('.project-card');
+class ProjectsCarousel {
+    constructor() {
+        this.track = document.querySelector('.carousel-track');
+        this.cards = document.querySelectorAll('.project-card');
+        this.prevBtn = document.querySelector('.carousel-btn-prev');
+        this.nextBtn = document.querySelector('.carousel-btn-next');
+        this.dots = document.querySelectorAll('.carousel-dot');
 
-projectCards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        this.currentIndex = 0;
+        this.autoPlayInterval = null;
+        this.autoPlayDelay = 5000; // 5 seconds
 
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
+        if (this.track && this.cards.length > 0) {
+            this.init();
+        }
+    }
 
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
+    init() {
+        // Set initial state
+        this.updateCarousel();
 
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
-    });
+        // Event listeners for buttons
+        this.prevBtn?.addEventListener('click', () => this.prev());
+        this.nextBtn?.addEventListener('click', () => this.next());
 
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-    });
-});
+        // Event listeners for dots
+        this.dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => this.goToSlide(index));
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') this.prev();
+            if (e.key === 'ArrowRight') this.next();
+        });
+
+        // Touch/swipe support
+        this.addTouchSupport();
+
+        // Recalculate on window resize for responsive positioning
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                this.updateCarousel();
+            }, 100);
+        });
+
+        // Auto-play (optional - uncomment to enable)
+        // this.startAutoPlay();
+
+        // Pause auto-play on hover
+        this.track.addEventListener('mouseenter', () => this.stopAutoPlay());
+        this.track.addEventListener('mouseleave', () => this.startAutoPlay());
+    }
+
+    updateCarousel() {
+        // Calculate translation using actual card width for accurate positioning
+        if (this.cards.length > 0) {
+            const firstCard = this.cards[0];
+            const cardWidth = firstCard.offsetWidth;
+            const gap = 30; // Gap from CSS (30px)
+            const offset = -(this.currentIndex * (cardWidth + gap));
+            this.track.style.transform = `translateX(${offset}px)`;
+        }
+
+        // Update active card
+        this.cards.forEach((card, index) => {
+            if (index === this.currentIndex) {
+                card.classList.add('active');
+            } else {
+                card.classList.remove('active');
+            }
+        });
+
+        // Update dots
+        this.dots.forEach((dot, index) => {
+            if (index === this.currentIndex) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+
+        // Update button states
+        this.updateButtons();
+    }
+
+    updateButtons() {
+        // Disable prev button at start
+        if (this.currentIndex === 0) {
+            this.prevBtn?.setAttribute('disabled', 'true');
+        } else {
+            this.prevBtn?.removeAttribute('disabled');
+        }
+
+        // Disable next button at end
+        if (this.currentIndex === this.cards.length - 1) {
+            this.nextBtn?.setAttribute('disabled', 'true');
+        } else {
+            this.nextBtn?.removeAttribute('disabled');
+        }
+    }
+
+    next() {
+        if (this.currentIndex < this.cards.length - 1) {
+            this.currentIndex++;
+            this.updateCarousel();
+        }
+    }
+
+    prev() {
+        if (this.currentIndex > 0) {
+            this.currentIndex--;
+            this.updateCarousel();
+        }
+    }
+
+    goToSlide(index) {
+        this.currentIndex = index;
+        this.updateCarousel();
+    }
+
+    addTouchSupport() {
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        this.track.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        this.track.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            this.handleSwipe();
+        });
+
+        const handleSwipe = () => {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe left - go to next
+                    this.next();
+                } else {
+                    // Swipe right - go to prev
+                    this.prev();
+                }
+            }
+        };
+
+        this.handleSwipe = handleSwipe;
+    }
+
+    startAutoPlay() {
+        this.stopAutoPlay();
+        this.autoPlayInterval = setInterval(() => {
+            if (this.currentIndex < this.cards.length - 1) {
+                this.next();
+            } else {
+                this.goToSlide(0); // Loop back to start
+            }
+        }, this.autoPlayDelay);
+    }
+
+    stopAutoPlay() {
+        if (this.autoPlayInterval) {
+            clearInterval(this.autoPlayInterval);
+            this.autoPlayInterval = null;
+        }
+    }
+}
+
+// Initialize carousel
+const projectsCarousel = new ProjectsCarousel();
 
 // ===================================
 // LOADING ANIMATION

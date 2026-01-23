@@ -102,10 +102,12 @@
                     <div class="card-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                            <path d="M9 14l2 2 4-4"></path>
                         </svg>
                     </div>
-                    <div class="card-text">Fast</div>
+                    <div class="card-text">Project Management</div>
                 </div>
                 <div class="profile-shape">
                     <img src="img/profile-photo.jpg" alt="Zain Ammar" class="profile-photo">
@@ -147,15 +149,15 @@
 
                     <div class="stats-grid">
                         <div class="stat-card">
-                            <div class="stat-number" data-target="50">0</div>
+                            <div class="stat-number" data-target="10">0</div>
                             <div class="stat-label">Projects Completed</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-number" data-target="30">0</div>
+                            <div class="stat-number" data-target="10">0</div>
                             <div class="stat-label">Happy Clients</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-number" data-target="5">0</div>
+                            <div class="stat-number" data-target="1">0</div>
                             <div class="stat-label">Years Experience</div>
                         </div>
                     </div>
@@ -280,210 +282,333 @@
                 <h2 class="section-title">Featured Projects</h2>
             </div>
 
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path
-                                            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path
-                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
+            <div class="projects-carousel-wrapper">
+                <button class="carousel-btn carousel-btn-prev" aria-label="Previous project">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+
+                <div class="projects-carousel">
+                    <div class="carousel-track">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="project-overlay">
+                                    <div class="project-links">
+                                        <a href="#" class="project-link">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                        <a href="#" class="project-link">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <img src="img/xena-preview.png" alt="XENA Work Order Management System"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="project-info">
+                                <div class="project-tags">
+                                    <span class="tag">Figma</span>
+                                    <span class="tag">PHP</span>
+                                    <span class="tag">Tailwind CSS</span>
+                                    <span class="tag">JavaScript</span>
+                                </div>
+                                <h3 class="project-title">XENA - Work Order Management System</h3>
+                                <p class="project-description">
+                                    A redesigned work order management system from Telkomsel internship project,
+                                    currently
+                                    developed as final thesis with enhanced UI/UX and operational efficiency features.
+                                </p>
                             </div>
                         </div>
-                        <img src="img/xena-preview.png" alt="XENA Work Order Management System"
-                            style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tags">
-                            <span class="tag">Figma</span>
-                            <span class="tag">PHP</span>
-                            <span class="tag">Tailwind CSS</span>
-                            <span class="tag">JavaScript</span>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="project-overlay">
+                                    <div class="project-links">
+                                        <a href="#" class="project-link">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                        <a href="#" class="project-link">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <img src="img/mcorder-preview.png" alt="MCORDER - McDonald's Ordering System"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="project-info">
+                                <div class="project-tags">
+                                    <span class="tag">Laravel</span>
+                                    <span class="tag">PHP</span>
+                                    <span class="tag">Tailwind CSS</span>
+                                    <span class="tag">JavaScript</span>
+                                    <span class="tag">Agile Scrum</span>
+                                </div>
+                                <h3 class="project-title">MCORDER - Non-Raw Material Ordering System</h3>
+                                <p class="project-description">
+                                    Web-based ordering system for McDonald's Manager Stock and Vendors to streamline
+                                    non-raw
+                                    material procurement with structured documentation. Developed using Agile Scrum
+                                    methodology
+                                    for Capstone Design course.
+                                </p>
+                            </div>
                         </div>
-                        <h3 class="project-title">XENA - Work Order Management System</h3>
-                        <p class="project-description">
-                            A redesigned work order management system from Telkomsel internship project, currently
-                            developed as final thesis with enhanced UI/UX and operational efficiency features.
-                        </p>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="project-overlay">
+                                    <div class="project-links">
+                                        <a href="#" class="project-link">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                        <a href="#" class="project-link">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <img src="img/dashboard-order.png" alt="Dashboard Order - Telkomsel"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="project-info">
+                                <div class="project-tags">
+                                    <span class="tag">Figma</span>
+                                    <span class="tag">UI Design</span>
+                                    <span class="tag">Dashboard Design</span>
+                                </div>
+                                <h3 class="project-title">Dashboard Order - Order Monitoring</h3>
+                                <p class="project-description">
+                                    UI Design work creating an order dashboard to monitor orders in each Telkomsel area.
+                                    Designed comprehensive monitoring interface with data visualization using Figma.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Project 4: Hadirin - Employee Attendance App -->
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="project-overlay">
+                                    <div class="project-links">
+                                        <a href="#" class="project-link">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                        <a href="#" class="project-link">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <img src="img/hadirin-preview.png" alt="Hadirin - Employee Attendance App"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="project-info">
+                                <div class="project-tags">
+                                    <span class="tag">Figma</span>
+                                    <span class="tag">FigJam</span>
+                                    <span class="tag">User Research</span>
+                                    <span class="tag">UI/UX Design</span>
+                                    <span class="tag">Retail Industry</span>
+                                </div>
+                                <h3 class="project-title">Hadirin - Employee Attendance App</h3>
+                                <p class="project-description">
+                                    UI/UX Design competition project focused on solving retail industry challenges.
+                                    Developed comprehensive attendance solution addressing unfair shift distribution
+                                    and employee wellbeing through user research, brainstorming, and human-centered
+                                    design approach using Figma and FigJam.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="project-overlay">
+                                    <div class="project-links">
+                                        <a href="#" class="project-link">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                        <a href="#" class="project-link">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <img src="img/dsc-research.png" alt="Digital Smart Care Research"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="project-info">
+                                <div class="project-tags">
+                                    <span class="tag">User Research</span>
+                                    <span class="tag">UX Research</span>
+                                    <span class="tag">Interview</span>
+                                    <span class="tag">Field Observation</span>
+                                </div>
+                                <h3 class="project-title">DSC Research - IndiHome Migration Study</h3>
+                                <p class="project-description">
+                                    UX Research project identifying pain points from IndiHome to Telkomsel migration and
+                                    Digital
+                                    Smart Care system used by Grapari front office. Discovered 54 new capabilities
+                                    through
+                                    comprehensive interviews and field observations.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="project-overlay">
+                                    <div class="project-links">
+                                        <a href="#" class="project-link">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                        <a href="#" class="project-link">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <img src="img/ramayana-app.png" alt="Ramayana E-Commerce App"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="project-info">
+                                <div class="project-tags">
+                                    <span class="tag">Figma</span>
+                                    <span class="tag">UML</span>
+                                    <span class="tag">Miro</span>
+                                    <span class="tag">User Research</span>
+                                    <span class="tag">Google Forms</span>
+                                </div>
+                                <h3 class="project-title">Ramayana App - E-Commerce Platform</h3>
+                                <p class="project-description">
+                                    Complete UX Research and UI/UX Design project for Ramayana's digital transformation.
+                                    Identified pain points in offline-only sales model and designed comprehensive
+                                    e-commerce
+                                    solution with UML documentation for Interaction Design course.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="project-overlay">
+                                    <div class="project-links">
+                                        <a href="#" class="project-link">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                        <a href="#" class="project-link">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <img src="img/washnow-preview.png" alt="WASH NOW Laundry App"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="project-info">
+                                <div class="project-tags">
+                                    <span class="tag">Figma</span>
+                                    <span class="tag">User Research</span>
+                                    <span class="tag">UX Design</span>
+                                    <span class="tag">Mobile App</span>
+                                    <span class="tag">Prototyping</span>
+                                </div>
+                                <h3 class="project-title">WASH NOW - Laundry Management App</h3>
+                                <p class="project-description">
+                                    Mobile application design for User Experience course focusing on laundry service
+                                    management.
+                                    Features include workorder tracking, location mapping, service selection, and
+                                    real-time order
+                                    status updates with user-friendly interface and smooth customer journey.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path
-                                            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path
-                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        <img src="img/mcorder-preview.png" alt="MCORDER - McDonald's Ordering System"
-                            style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tags">
-                            <span class="tag">Laravel</span>
-                            <span class="tag">PHP</span>
-                            <span class="tag">Tailwind CSS</span>
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">Agile Scrum</span>
-                        </div>
-                        <h3 class="project-title">MCORDER - Non-Raw Material Ordering System</h3>
-                        <p class="project-description">
-                            Web-based ordering system for McDonald's Manager Stock and Vendors to streamline non-raw
-                            material procurement with structured documentation. Developed using Agile Scrum methodology
-                            for Capstone Design course.
-                        </p>
-                    </div>
-                </div>
+                <button class="carousel-btn carousel-btn-next" aria-label="Next project">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path
-                                            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path
-                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        <img src="img/dashboard-order.png" alt="Dashboard Order - Telkomsel"
-                            style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tags">
-                            <span class="tag">Figma</span>
-                            <span class="tag">UI Design</span>
-                            <span class="tag">Dashboard Design</span>
-                        </div>
-                        <h3 class="project-title">Dashboard Order - Order Monitoring</h3>
-                        <p class="project-description">
-                            UI Design work creating an order dashboard to monitor orders in each Telkomsel area.
-                            Designed comprehensive monitoring interface with data visualization using Figma.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path
-                                            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path
-                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        <img src="img/dsc-research.png" alt="Digital Smart Care Research"
-                            style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tags">
-                            <span class="tag">User Research</span>
-                            <span class="tag">UX Research</span>
-                            <span class="tag">Interview</span>
-                            <span class="tag">Field Observation</span>
-                        </div>
-                        <h3 class="project-title">DSC Research - IndiHome Migration Study</h3>
-                        <p class="project-description">
-                            UX Research project identifying pain points from IndiHome to Telkomsel migration and Digital
-                            Smart Care system used by Grapari front office. Discovered 54 new capabilities through
-                            comprehensive interviews and field observations.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path
-                                            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path
-                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        <img src="img/ramayana-app.png" alt="Ramayana E-Commerce App"
-                            style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tags">
-                            <span class="tag">Figma</span>
-                            <span class="tag">UML</span>
-                            <span class="tag">Miro</span>
-                            <span class="tag">User Research</span>
-                            <span class="tag">Google Forms</span>
-                        </div>
-                        <h3 class="project-title">Ramayana App - E-Commerce Platform</h3>
-                        <p class="project-description">
-                            Complete UX Research and UI/UX Design project for Ramayana's digital transformation.
-                            Identified pain points in offline-only sales model and designed comprehensive e-commerce
-                            solution with UML documentation for Interaction Design course.
-                        </p>
-                    </div>
-                </div>
+            <div class="carousel-dots">
+                <button class="carousel-dot active" data-index="0" aria-label="Go to project 1"></button>
+                <button class="carousel-dot" data-index="1" aria-label="Go to project 2"></button>
+                <button class="carousel-dot" data-index="2" aria-label="Go to project 3"></button>
+                <button class="carousel-dot" data-index="3" aria-label="Go to project 4"></button>
+                <button class="carousel-dot" data-index="4" aria-label="Go to project 5"></button>
+                <button class="carousel-dot" data-index="5" aria-label="Go to project 6"></button>
+                <button class="carousel-dot" data-index="6" aria-label="Go to project 7"></button>
+                <button class="carousel-dot" data-index="7" aria-label="Go to project 8"></button>
             </div>
         </div>
     </section>
