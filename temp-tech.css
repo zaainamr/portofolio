@@ -1,0 +1,130 @@
+/* ===================================
+   TECH STACK LOOP ANIMATION (PRO)
+   =================================== */
+.tech-stack-container {
+    --logoloop-gap: 60px;
+    --logoloop-logoHeight: 28px;
+    width: 100%;
+    padding: 40px 0;
+    overflow: hidden;
+}
+
+.logo-loop-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.logo-loop-track {
+    display: flex;
+    width: max-content;
+    animation: tech-scroll 40s linear infinite;
+}
+
+.logo-loop-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes tech-scroll {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+.logo-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.logo-list li {
+    margin-right: var(--logoloop-gap);
+    flex-shrink: 0;
+}
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.tech-item svg {
+    width: var(--logoloop-logoHeight);
+    height: var(--logoloop-logoHeight);
+    fill: currentColor;
+    transition: transform 0.3s ease;
+}
+
+.tech-label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Hover Colors */
+.tech-item:hover {
+    color: white;
+}
+
+.tech-item.react:hover {
+    color: #61DAFB;
+}
+
+.tech-item.tailwind:hover {
+    color: #38B2AC;
+}
+
+.tech-item.node:hover {
+    color: #339933;
+}
+
+.tech-item.next:hover {
+    color: #ffffff;
+}
+
+.tech-item.figma:hover {
+    color: #F24E1E;
+}
+
+.tech-item.typescript:hover {
+    color: #3178C6;
+}
+
+.tech-item.mysql:hover {
+    color: #4479A1;
+}
+
+.tech-item.laravel:hover {
+    color: #FF2D20;
+}
+
+.tech-item.js:hover {
+    color: #F7DF1E;
+}
+
+.tech-item.git:hover {
+    color: #F05032;
+}
+
+.tech-item.vscode:hover {
+    color: #007ACC;
+}
+
+.tech-item.vite:hover {
+    color: #646CFF;
+}
+
+.tech-item:hover svg {
+    transform: scale(1.1);
+}

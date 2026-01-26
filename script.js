@@ -310,7 +310,8 @@ class ProjectsCarousel {
         this.cards = document.querySelectorAll('.project-card');
         this.prevBtn = document.querySelector('.carousel-btn-prev');
         this.nextBtn = document.querySelector('.carousel-btn-next');
-        this.dots = document.querySelectorAll('.carousel-dot');
+        this.dotsContainer = document.querySelector('.carousel-dots');
+        this.dots = [];
 
         this.currentIndex = 0;
         this.autoPlayInterval = null;
@@ -322,6 +323,9 @@ class ProjectsCarousel {
     }
 
     init() {
+        // Generate dots dynamically
+        this.createDots();
+
         // Set initial state
         this.updateCarousel();
 
@@ -329,10 +333,7 @@ class ProjectsCarousel {
         this.prevBtn?.addEventListener('click', () => this.prev());
         this.nextBtn?.addEventListener('click', () => this.next());
 
-        // Event listeners for dots
-        this.dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => this.goToSlide(index));
-        });
+        // Note: Dots event listeners are added in createDots()
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
@@ -348,6 +349,11 @@ class ProjectsCarousel {
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
+                // Ensure index is within new bounds if view changes
+                const maxIndex = this.cards.length - this.getVisibleCardsCount();
+                if (this.currentIndex > maxIndex) {
+                    this.currentIndex = maxIndex;
+                }
                 this.updateCarousel();
             }, 100);
         });
@@ -360,6 +366,36 @@ class ProjectsCarousel {
         this.track.addEventListener('mouseleave', () => this.startAutoPlay());
     }
 
+    createDots() {
+        if (!this.dotsContainer) return;
+
+        // Clear existing dots
+        this.dotsContainer.innerHTML = '';
+
+        // Create a dot for each card
+        this.cards.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.classList.add('carousel-dot');
+            dot.setAttribute('data-index', index);
+            dot.setAttribute('aria-label', `Go to project ${index + 1}`);
+
+            // Add click event listener
+            dot.addEventListener('click', () => this.goToSlide(index));
+
+            this.dotsContainer.appendChild(dot);
+        });
+
+        // Update dots reference
+        this.dots = document.querySelectorAll('.carousel-dot');
+    }
+
+    getVisibleCardsCount() {
+        if (window.innerWidth <= 1024) {
+            return 1;
+        }
+        return 2;
+    }
+
     updateCarousel() {
         // Calculate translation using actual card width for accurate positioning
         if (this.cards.length > 0) {
@@ -370,9 +406,10 @@ class ProjectsCarousel {
             this.track.style.transform = `translateX(${offset}px)`;
         }
 
-        // Update active card
+        // Update active card class (highlight visible cards)
+        const visibleCount = this.getVisibleCardsCount();
         this.cards.forEach((card, index) => {
-            if (index === this.currentIndex) {
+            if (index >= this.currentIndex && index < this.currentIndex + visibleCount) {
                 card.classList.add('active');
             } else {
                 card.classList.remove('active');
@@ -380,6 +417,8 @@ class ProjectsCarousel {
         });
 
         // Update dots
+        // Note: Dots mapping logic works best for 1-to-1 or if we have dots per page.
+        // For simplicity, we keep 1 dot per item but highlight the "starting" item's dot.
         this.dots.forEach((dot, index) => {
             if (index === this.currentIndex) {
                 dot.classList.add('active');
@@ -401,7 +440,9 @@ class ProjectsCarousel {
         }
 
         // Disable next button at end
-        if (this.currentIndex === this.cards.length - 1) {
+        // End is reached when the last group of cards is fully visible
+        const maxIndex = this.cards.length - this.getVisibleCardsCount();
+        if (this.currentIndex >= maxIndex) {
             this.nextBtn?.setAttribute('disabled', 'true');
         } else {
             this.nextBtn?.removeAttribute('disabled');
@@ -409,7 +450,8 @@ class ProjectsCarousel {
     }
 
     next() {
-        if (this.currentIndex < this.cards.length - 1) {
+        const maxIndex = this.cards.length - this.getVisibleCardsCount();
+        if (this.currentIndex < maxIndex) {
             this.currentIndex++;
             this.updateCarousel();
         }
@@ -423,7 +465,9 @@ class ProjectsCarousel {
     }
 
     goToSlide(index) {
-        this.currentIndex = index;
+        // Ensure we don't go out of bounds (past the last full group)
+        const maxIndex = this.cards.length - this.getVisibleCardsCount();
+        this.currentIndex = Math.min(index, maxIndex);
         this.updateCarousel();
     }
 
@@ -461,7 +505,8 @@ class ProjectsCarousel {
     startAutoPlay() {
         this.stopAutoPlay();
         this.autoPlayInterval = setInterval(() => {
-            if (this.currentIndex < this.cards.length - 1) {
+            const maxIndex = this.cards.length - this.getVisibleCardsCount();
+            if (this.currentIndex < maxIndex) {
                 this.next();
             } else {
                 this.goToSlide(0); // Loop back to start
