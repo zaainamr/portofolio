@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio profesional dengan animasi modern dan interaktif">
-    <title>Portfolio - Creative Developer</title>
+    <title>Zain Ammar - Portfolio</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -157,18 +158,48 @@
                         in everything I do, strives for the best and looks for continuous growth.
                     </p>
 
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-number" data-target="12">0</div>
-                            <div class="stat-label">Projects Completed</div>
+                    <div class="recommendations">
+                        <div class="recommendation-cards" id="recCards">
+                            <div class="rec-card active" onclick="switchCard()">
+                                <p class="rec-text">"I have teamed up with Zain for class projects, lecturer
+                                    assignments, and UI/UX competitions.
+                                    He is a solid partner who always delivers his best work
+                                    and makes the collaboration process easy."</p>
+                                <div class="rec-author">
+                                    <div class="rec-avatar">DA</div>
+                                    <div class="rec-info">
+                                        <span class="rec-name">Dimas B. Arkaan</span>
+                                        <span class="rec-role">UI/UX & Graphic Designer</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rec-card" onclick="switchCard()">
+                                <p class="rec-text">"Mematahkan stereotip 'Gen-Z susah diajak kerjasama'. Zain sangat
+                                    cepat tune-in dan memberi dampak besar bagi inisiatif tim. Terima kasih atas
+                                    kontribusi positif dan keceriaan yang dibagikan."</p>
+                                <div class="rec-author">
+                                    <div class="rec-avatar">AN</div>
+                                    <div class="rec-info">
+                                        <span class="rec-name">Azhar A. Nasution</span>
+                                        <span class="rec-role">Manager HCCES CCM Telkomsel</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="stat-card">
-                            <div class="stat-number" data-target="1000">0</div>
-                            <div class="stat-label">Impacted Users</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number" data-target="2">0</div>
-                            <div class="stat-label">Years Experience</div>
+
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number" data-target="12">0</div>
+                                <div class="stat-label">Projects Completed</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" data-target="1000">0</div>
+                                <div class="stat-label">Impacted Users</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" data-target="2">0</div>
+                                <div class="stat-label">Years Experience</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -181,6 +212,52 @@
             </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.rec-card');
+            let intervalId;
+            let isAnimating = false;
+
+            function startAutoSlide() {
+                intervalId = setInterval(() => {
+                    switchCard();
+                }, 6000);
+            }
+
+            window.switchCard = function () {
+                if (isAnimating) return; // Mencegah klik spam
+                isAnimating = true;
+
+                // Reset timer jika diklik manual
+                clearInterval(intervalId);
+
+                // Cari card yang aktif saat ini
+                const currentActive = document.querySelector('.rec-card.active');
+                const nextActive = document.querySelector('.rec-card:not(.active)');
+
+                if (currentActive && nextActive) {
+                    // 1. Slide keluar card aktif (ke kiri)
+                    currentActive.classList.add('animating-out');
+                    currentActive.classList.remove('active');
+
+                    // 2. Card belakang perlahan maju (handled by CSS transition)
+                    nextActive.classList.add('active');
+
+                    // 3. Setelah animasi selesai, reset posisi card yang keluar ke belakang antrian
+                    setTimeout(() => {
+                        currentActive.classList.remove('animating-out');
+                        isAnimating = false;
+
+                        // Mulai timer lagi
+                        startAutoSlide();
+                    }, 600); // 600ms sesuai durasi CSS transition
+                }
+            }
+
+            startAutoSlide();
+        });
+    </script>
 
     <!-- Skills Section -->
     <section id="skills" class="skills">
@@ -930,7 +1007,7 @@
                                     d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                             </svg>
                         </a>
-                        <a href="#" class="social-link" aria-label="Instagram">
+                        <a href="https://www.instagram.com/zaainamr/" class="social-link" aria-label="Instagram">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
                                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />

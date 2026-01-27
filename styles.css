@@ -2876,3 +2876,164 @@ section {
 .tech-item:hover .tech-label {
     opacity: 1 !important;
 }
+
+/* ===================================
+   RECOMMENDATIONS SECTION
+   =================================== */
+.recommendations {
+    margin-top: 30px;
+    padding-top: 0;
+    border-top: none;
+    margin-bottom: 40px;
+    /* Add space below for stats-grid */
+}
+
+.recommendations-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: var(--text-primary);
+}
+
+.recommendation-cards {
+    display: grid;
+    grid-template-areas: "stack";
+    position: relative;
+    /* Height menyesuaikan card tertinggi */
+}
+
+/* Base styles for cards */
+.rec-card {
+    grid-area: stack;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Default State (Background/Stacked) */
+    transform: translateX(40px) scale(0.95) rotate(3deg);
+    opacity: 0.7;
+    z-index: 1;
+    filter: blur(0.5px);
+    pointer-events: auto;
+    /* Allow clicking even when in back */
+}
+
+/* Hover effect for back card */
+.rec-card:not(.active):hover {
+    transform: translateX(50px) scale(0.97) rotate(4deg);
+    border-color: var(--primary-color);
+}
+
+/* Active State (Front) */
+.rec-card.active {
+    transform: translateX(0) scale(1) rotate(0);
+    opacity: 1;
+    z-index: 2;
+    filter: blur(0);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
+}
+
+/* Animation class for exiting active card */
+.rec-card.animating-out {
+    transform: translateX(-60px) scale(0.9) rotate(-5deg);
+    opacity: 0;
+    filter: blur(4px);
+}
+
+.rec-text {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.rec-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.rec-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--primary-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.rec-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.rec-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.rec-role {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+/* Tablet View (768px - 1024px) */
+@media (max-width: 1024px) {
+
+    /* Hide scroll indicator on tablet and below */
+    .scroll-indicator {
+        display: none;
+    }
+
+    /* Reorder about section: image first, then text */
+    .about-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-image {
+        order: -1;
+        /* Move image to top */
+        margin-bottom: 40px;
+    }
+
+    .about-text {
+        order: 1;
+    }
+}
+
+/* Mobile View (max 768px) */
+@media (max-width: 768px) {
+    /* Scroll indicator already hidden from tablet breakpoint */
+
+    /* About section already reordered from tablet breakpoint */
+
+    /* Adjust stats grid for mobile */
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Adjust image size for mobile */
+    .image-wrapper {
+        width: 250px;
+        height: 250px;
+    }
+}
