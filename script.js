@@ -9,9 +9,9 @@ let lastScroll = 0;
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
 
-    if (currentScroll > 50) {
+    if (navbar && currentScroll > 50) {
         navbar.classList.add('scrolled');
-    } else {
+    } else if (navbar) {
         navbar.classList.remove('scrolled');
     }
 
@@ -23,18 +23,25 @@ const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 const links = document.querySelectorAll('.nav-link');
 
-menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    menuToggle.classList.toggle('active');
-});
+if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+        if (navLinks) navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
+    });
+}
 
 // Close mobile menu when clicking on a link
-links.forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        menuToggle.classList.remove('active');
+// Close mobile menu when clicking on a link
+if (links.length > 0) {
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navLinks) navLinks.classList.remove('active');
+            if (menuToggle) menuToggle.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+        });
     });
-});
+}
 
 // Active link on scroll
 const sections = document.querySelectorAll('section');
@@ -59,6 +66,80 @@ const updateActiveLink = () => {
 };
 
 window.addEventListener('scroll', updateActiveLink);
+
+// ===================================
+// THEME SWITCHER
+// ===================================
+
+const themeToggle = document.querySelector('.theme-toggle');
+const body = document.body;
+
+// Check for saved theme preference safely
+let savedTheme = 'dark'; // Default
+try {
+    savedTheme = localStorage.getItem('theme') || 'dark';
+} catch (e) {
+    console.warn('LocalStorage access denied:', e);
+}
+
+const systemTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+
+// Initial Theme Setup
+// Only apply light theme if explicitly saved or system prefers it AND no save exists (optional, usually explicit save wins)
+// Since our CSS defaults to dark, we only need to add class if it's light
+if (savedTheme === 'light') {
+    body.classList.add('light-theme');
+    updateThemeIcon('light');
+}
+
+// Toggle Theme
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        // Add animation class
+        themeToggle.classList.add('animate');
+        setTimeout(() => themeToggle.classList.remove('animate'), 500);
+
+        // Toggle theme class
+        body.classList.toggle('light-theme');
+
+        // Determine current theme
+        const currentTheme = body.classList.contains('light-theme') ? 'light' : 'dark';
+
+        // Update icon
+        updateThemeIcon(currentTheme);
+
+        // Save preference safely
+        try {
+            localStorage.setItem('theme', currentTheme);
+        } catch (e) {
+            console.warn('LocalStorage save failed:', e);
+        }
+    });
+}
+
+function updateThemeIcon(theme) {
+    if (!themeToggle) return;
+    const svg = themeToggle.querySelector('svg');
+    if (theme === 'light') {
+        // In Light Mode, show Moon icon (action to switch to Dark)
+        svg.innerHTML = `
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        `;
+    } else {
+        // In Dark Mode, show Sun icon (action to switch to Light)
+        svg.innerHTML = `
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        `;
+    }
+}
 
 // ===================================
 // TYPING ANIMATION

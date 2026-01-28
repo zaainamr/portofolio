@@ -8,23 +8,18 @@
 }
 
 :root {
-    /* Color Palette */
-    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    --success-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    /* Color Palette - Navy & Baby Blue Theme */
+    /* Primary: Baby Blue to Navy */
+    --primary-gradient: linear-gradient(135deg, #60a5fa 0%, #1e3a8a 100%);
+    /* Secondary: Deep Navy (Monochromatic) */
+    --secondary-gradient: linear-gradient(135deg, #1e40af 0%, #172554 100%);
+    /* Accent: Lightest Blue to Bright Blue */
+    --accent-gradient: linear-gradient(135deg, #bfdbfe 0%, #3b82f6 100%);
+    /* Success: Bright Baby Blue */
+    --success-gradient: linear-gradient(135deg, #93c5fd 0%, #3b82f6 100%);
 
-    --bg-dark: #0a0a0f;
-    --bg-darker: #050508;
-    --bg-card: rgba(255, 255, 255, 0.03);
-    --bg-card-hover: rgba(255, 255, 255, 0.06);
-
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0b0;
-    --text-muted: #6b6b7b;
-
-    --border-color: rgba(255, 255, 255, 0.1);
-    --glow-color: rgba(102, 126, 234, 0.3);
+    --primary-color: #3b82f6;
+    /* Solid primary color for borders/text */
 
     /* Typography */
     --font-primary: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -40,7 +35,84 @@
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
     --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* ===================================
+   DARK THEME (Default - Calm Zinc/Emerald)
+   =================================== */
+body {
+    /* Neutral Dark Gray (ZINC) instead of Blue-ish Dark */
+    --bg-dark: #18181b;
+    --tech-icon-color: #FFFFFF;
+    --bg-darker: #09090b;
+    --bg-card: rgba(255, 255, 255, 0.03);
+    --bg-card-hover: rgba(255, 255, 255, 0.05);
+
+    --text-primary: #f4f4f5;
+    /* Zinc 100 */
+    --text-secondary: #a1a1aa;
+    /* Zinc 400 */
+    --text-muted: #71717a;
+    /* Zinc 500 */
+
+    --border-color: rgba(255, 255, 255, 0.08);
+    --glow-color: rgba(59, 130, 246, 0.25);
+    /* Blue Glow */
     --shadow-glow: 0 0 30px var(--glow-color);
+
+    --navbar-bg: rgba(24, 24, 27, 0.85);
+    --navbar-scrolled: rgba(24, 24, 27, 0.98);
+
+    --orb-opacity: 0.25;
+    --background-radial-1: rgba(59, 130, 246, 0.08);
+    /* Soft Blue */
+    --background-radial-2: rgba(30, 58, 138, 0.08);
+    --background-radial-2: rgba(30, 58, 138, 0.08);
+    /* Soft Navy */
+
+    --primary-color-rgb: 59, 130, 246;
+    /* RGB values for primary color for rgba usage */
+}
+
+/* ===================================
+   LIGHT THEME (Override)
+   =================================== */
+body.light-theme {
+    /* User Requested Palette */
+    /* Background: #f8f8f8 */
+    --tech-icon-color: #000000;
+    /* Secondary/Border: #b3b3b3 */
+    /* Text Strong: #2b2b2b */
+
+    --bg-dark: #f8f8f8;
+    --bg-darker: #ffffff;
+    /* Use pure white for cards to stand out on f8f8f8 */
+    --bg-card: #ffffff;
+    --bg-card-hover: #f0f0f0;
+
+    --text-primary: #2b2b2b;
+    --text-secondary: #5a5a5a;
+    /* Slightly darker than b3b3b3 for better text readability */
+    --text-muted: #888888;
+
+    --border-color: #b3b3b3;
+    /* User requested color */
+
+    --glow-color: rgba(59, 130, 246, 0.15);
+    /* Softer Blue Glow for Light Mode */
+    --shadow-glow: 0 0 20px rgba(0, 0, 0, 0.05);
+
+    --navbar-bg: rgba(248, 248, 248, 0.9);
+    --navbar-scrolled: rgba(255, 255, 255, 0.98);
+
+    /* Slightly more visible orbs in light mode but very subtle */
+    --orb-opacity: 0.15;
+    --background-radial-1: rgba(16, 185, 129, 0.05);
+    --background-radial-2: rgba(251, 191, 36, 0.05);
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
 html {
@@ -55,6 +127,7 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body::before {
@@ -65,10 +138,15 @@ body::before {
     width: 100%;
     height: 100%;
     background:
-        radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.05) 0%, transparent 50%);
+        radial-gradient(circle at 20% 50%, var(--background-radial-1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, var(--background-radial-2) 0%, transparent 50%);
     pointer-events: none;
     z-index: -1;
+    transition: background 0.3s ease;
+}
+
+body.no-scroll {
+    overflow: hidden;
 }
 
 /* ===================================
@@ -81,7 +159,7 @@ body::before {
     right: 0;
     z-index: 1000;
     padding: 20px 0;
-    background: rgba(10, 10, 15, 0.8);
+    background: var(--navbar-bg);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-color);
     transition: var(--transition-smooth);
@@ -89,7 +167,7 @@ body::before {
 
 .navbar.scrolled {
     padding: 15px 0;
-    background: rgba(10, 10, 15, 0.95);
+    background: var(--navbar-scrolled);
     box-shadow: var(--shadow-md);
 }
 
@@ -182,6 +260,49 @@ body::before {
     transition: var(--transition-smooth);
 }
 
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: var(--text-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Merged */
+    position: relative;
+    z-index: 1001;
+    overflow: hidden;
+    /* Merged */
+    transition: var(--transition-smooth);
+}
+
+.theme-toggle:hover {
+    background: var(--bg-card-hover);
+    color: #ffd700;
+    /* Gold color on hover */
+    transform: rotate(15deg);
+}
+
+.theme-toggle svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Rotate animation when switching */
+.theme-toggle.animate svg {
+    transform: rotate(360deg);
+}
+
 /* ===================================
    HERO SECTION
    =================================== */
@@ -205,39 +326,43 @@ body::before {
     z-index: 0;
 }
 
+/* Floating Shapes */
 .gradient-orb {
     position: absolute;
     border-radius: 50%;
     filter: blur(80px);
-    opacity: 0.3;
+    opacity: var(--orb-opacity);
     animation: float 20s infinite ease-in-out;
 }
 
 .orb-1 {
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, #667eea 0%, transparent 70%);
-    top: -10%;
-    left: -10%;
+    width: 400px;
+    height: 400px;
+    top: -100px;
+    left: -100px;
+    background: radial-gradient(circle, #10b981 0%, transparent 70%);
+    /* Emerald */
     animation-delay: 0s;
 }
 
 .orb-2 {
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, #764ba2 0%, transparent 70%);
-    top: 50%;
-    right: -5%;
-    animation-delay: -7s;
+    width: 300px;
+    height: 300px;
+    top: 40%;
+    right: -50px;
+    background: radial-gradient(circle, #0d9488 0%, transparent 70%);
+    /* Teal */
+    animation-delay: -5s;
 }
 
 .orb-3 {
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, #f093fb 0%, transparent 70%);
-    bottom: -20%;
-    left: 50%;
-    animation-delay: -14s;
+    width: 350px;
+    height: 350px;
+    bottom: -50px;
+    left: 20%;
+    background: radial-gradient(circle, #059669 0%, transparent 70%);
+    /* Dark Green */
+    animation-delay: -10s;
 }
 
 @keyframes float {
@@ -680,6 +805,7 @@ section {
     font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 20px;
+    text-align: justify;
 }
 
 .stats-grid {
@@ -1030,6 +1156,7 @@ section {
     transition: var(--transition-smooth);
     display: block;
     object-fit: contain;
+    color: var(--tech-icon-color);
 }
 
 .tech-item:hover svg {
@@ -1047,54 +1174,7 @@ section {
     color: var(--text-primary);
 }
 
-/* Warna specific untuk setiap tech */
-.tech-item.react svg {
-    color: #FFFFFF;
-}
-
-.tech-item.tailwind svg {
-    color: #FFFFFF;
-}
-
-.tech-item.jira svg {
-    color: #FFFFFF;
-}
-
-.tech-item.miro svg {
-    color: #FFFFFF;
-}
-
-.tech-item.next svg {
-    color: #FFFFFF;
-}
-
-.tech-item.figma svg {
-    color: #FFFFFF;
-}
-
-.tech-item.mysql svg {
-    color: #FFFFFF;
-}
-
-.tech-item.laravel svg {
-    color: #FFFFFF;
-}
-
-.tech-item.js svg {
-    color: #FFFFFF;
-}
-
-.tech-item.git svg {
-    color: #FFFFFF;
-}
-
-.tech-item.vscode svg {
-    color: #FFFFFF;
-}
-
-.tech-item.vite svg {
-    color: #FFFFFF;
-}
+/* Tech colors now handled by --tech-icon-color */
 
 /* ===================================
    WORK EXPERIENCE SECTION
@@ -1241,6 +1321,7 @@ section {
     line-height: 1.7;
     margin-bottom: 20px;
     font-size: 1rem;
+    text-align: justify;
 }
 
 .experience-tags {
@@ -1442,6 +1523,7 @@ section {
     color: var(--text-secondary);
     line-height: 1.7;
     font-size: 0.95rem;
+    text-align: justify;
 }
 
 /* ===================================
@@ -1469,6 +1551,7 @@ section {
     line-height: 1.8;
     margin-bottom: 40px;
     font-size: 1.05rem;
+    text-align: justify;
 }
 
 .contact-methods {
@@ -1657,12 +1740,14 @@ section {
         left: -100%;
         width: 100%;
         height: calc(100vh - 80px);
-        background: rgba(10, 10, 15, 0.98);
+        background: var(--navbar-scrolled);
+        /* Theme aware with slight transparency */
         backdrop-filter: blur(20px);
         flex-direction: column;
         justify-content: flex-start;
         padding: 40px;
         gap: 30px;
+        overflow-y: auto;
         transition: var(--transition-smooth);
         border-top: 1px solid var(--border-color);
     }
@@ -1706,7 +1791,8 @@ section {
     }
 
     .about-content {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column-reverse;
         gap: 40px;
     }
 
@@ -2988,52 +3074,4 @@ section {
 .rec-role {
     font-size: 0.85rem;
     color: var(--text-muted);
-}
-
-/* ===================================
-   RESPONSIVE DESIGN
-   =================================== */
-
-/* Tablet View (768px - 1024px) */
-@media (max-width: 1024px) {
-
-    /* Hide scroll indicator on tablet and below */
-    .scroll-indicator {
-        display: none;
-    }
-
-    /* Reorder about section: image first, then text */
-    .about-content {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .about-image {
-        order: -1;
-        /* Move image to top */
-        margin-bottom: 40px;
-    }
-
-    .about-text {
-        order: 1;
-    }
-}
-
-/* Mobile View (max 768px) */
-@media (max-width: 768px) {
-    /* Scroll indicator already hidden from tablet breakpoint */
-
-    /* About section already reordered from tablet breakpoint */
-
-    /* Adjust stats grid for mobile */
-    .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    /* Adjust image size for mobile */
-    .image-wrapper {
-        width: 250px;
-        height: 250px;
-    }
 }

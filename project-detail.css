@@ -46,8 +46,8 @@ section {
 .project-category {
     display: inline-block;
     padding: 6px 14px;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-    border: 1px solid rgba(102, 126, 234, 0.3);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(30, 58, 138, 0.1) 100%);
+    border: 1px solid rgba(59, 130, 246, 0.3);
     border-radius: 20px;
     color: var(--primary-color);
     font-size: 0.85rem;
@@ -113,7 +113,7 @@ section {
 }
 
 .tech-tag:hover {
-    background: rgba(102, 126, 234, 0.1);
+    background: rgba(59, 130, 246, 0.1);
     border-color: var(--primary-color);
     color: var(--primary-color);
     transform: translateY(-2px);
@@ -147,7 +147,7 @@ section {
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
 }
 
 .btn-secondary {
@@ -240,6 +240,7 @@ section {
     line-height: 1.7;
     color: var(--text-secondary);
     margin-bottom: 16px;
+    text-align: justify;
 }
 
 /* Goals Grid */
@@ -259,14 +260,14 @@ section {
 
 .goal-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(102, 126, 234, 0.5);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
 }
 
 .goal-icon {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(30, 58, 138, 0.1) 100%);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -309,7 +310,7 @@ section {
 }
 
 .feature-item:hover {
-    border-color: rgba(102, 126, 234, 0.5);
+    border-color: rgba(59, 130, 246, 0.5);
     transform: translateX(10px);
 }
 
