@@ -697,6 +697,40 @@ function debounce(func, wait) {
 window.addEventListener('scroll', debounce(updateActiveLink, 50));
 
 // ===================================
+// CERTIFICATE PREVIEW MODAL LOGIC
+// ===================================
+
+const certCard = document.querySelector('.credential-card');
+const certModal = document.getElementById('certModal');
+const certCloseBtn = document.querySelector('.cert-modal-close');
+const certOverlay = document.querySelector('.cert-modal-overlay');
+
+if (certCard && certModal) {
+    // Open modal on click
+    certCard.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent directly opening Google Drive link
+        certModal.classList.add('active');
+        document.body.classList.add('no-scroll');
+    });
+
+    // Close modal function
+    const closeModal = () => {
+        certModal.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+    };
+
+    certCloseBtn?.addEventListener('click', closeModal);
+    certOverlay?.addEventListener('click', closeModal);
+
+    // Escape key to close
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && certModal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}
+
+// ===================================
 // CONSOLE MESSAGE
 // ===================================
 
