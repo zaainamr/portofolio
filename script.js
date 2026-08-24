@@ -147,10 +147,11 @@ function updateThemeIcon(theme) {
 
 const typedOutput = document.querySelector('.typed-output');
 const phrases = [
-    'UI/UX Designer',
-    'System Analyst',
-    'Front End Developer',
-    'Critical Thinker'
+    'System & Business Analyst',
+    'UI/UX Researcher & Designer',
+    'Data & BI Analyst',
+    'Associate Product Manager',
+    'Information Systems Graduate'
 ];
 
 let phraseIndex = 0;
@@ -700,17 +701,32 @@ window.addEventListener('scroll', debounce(updateActiveLink, 50));
 // CERTIFICATE PREVIEW MODAL LOGIC
 // ===================================
 
-const certCard = document.querySelector('.credential-card');
+const certCards = document.querySelectorAll('.credential-card');
 const certModal = document.getElementById('certModal');
 const certCloseBtn = document.querySelector('.cert-modal-close');
 const certOverlay = document.querySelector('.cert-modal-overlay');
+const certModalImg = document.querySelector('.cert-modal-img');
+const certModalLink = document.querySelector('.cert-modal-footer a');
 
-if (certCard && certModal) {
-    // Open modal on click
-    certCard.addEventListener('click', (e) => {
-        e.preventDefault(); // Prevent directly opening Google Drive link
-        certModal.classList.add('active');
-        document.body.classList.add('no-scroll');
+if (certCards.length > 0 && certModal) {
+    certCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            const certImgSrc = card.getAttribute('data-cert-img');
+            const certLinkHref = card.getAttribute('href');
+            const certAlt = card.getAttribute('data-cert-title') || 'Certificate Preview';
+
+            if (certImgSrc && certModalImg) {
+                certModalImg.src = certImgSrc;
+                certModalImg.alt = certAlt;
+            }
+            if (certLinkHref && certModalLink) {
+                certModalLink.href = certLinkHref;
+            }
+
+            certModal.classList.add('active');
+            document.body.classList.add('no-scroll');
+        });
     });
 
     // Close modal function
