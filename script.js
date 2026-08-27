@@ -383,56 +383,65 @@ document.addEventListener('mousemove', (e) => {
 });
 
 // ===================================
-// PROJECTS CAROUSEL
+// PROJECTS CAROUSEL WITH ROLE FILTER
 // ===================================
 
 class ProjectsCarousel {
     constructor() {
         this.track = document.querySelector('.carousel-track');
-        this.cards = document.querySelectorAll('.project-card');
+        this.allCards = Array.from(document.querySelectorAll('.project-card'));
+        this.visibleCards = [...this.allCards];
+        this.filterButtons = document.querySelectorAll('.project-filter-btn');
         this.prevBtn = document.querySelector('.carousel-btn-prev');
         this.nextBtn = document.querySelector('.carousel-btn-next');
         this.dotsContainer = document.querySelector('.carousel-dots');
         this.dots = [];
 
         this.currentIndex = 0;
+        this.currentFilter = 'all';
         this.autoPlayInterval = null;
-        this.autoPlayDelay = 5000; // 5 seconds
+        this.autoPlayDelay = 5000;
 
-        if (this.track && this.cards.length > 0) {
+        if (this.track && this.allCards.length > 0) {
             this.init();
         }
     }
 
     init() {
-        // Generate dots dynamically
+        // Initialize filter buttons
+        this.setupFilters();
+
+        // Generate initial dots
         this.createDots();
 
         // Set initial state
         this.updateCarousel();
 
-        // Event listeners for buttons
+        // Event listeners for prev/next buttons
         this.prevBtn?.addEventListener('click', () => this.prev());
         this.nextBtn?.addEventListener('click', () => this.next());
 
-        // Note: Dots event listeners are added in createDots()
-
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') this.prev();
-            if (e.key === 'ArrowRight') this.next();
+            const projectsSection = document.getElementById('projects');
+            if (!projectsSection) return;
+            const rect = projectsSection.getBoundingClientRect();
+            // Only react to keys if user is near projects section
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                if (e.key === 'ArrowLeft') this.prev();
+                if (e.key === 'ArrowRight') this.next();
+            }
         });
 
         // Touch/swipe support
         this.addTouchSupport();
 
-        // Recalculate on window resize for responsive positioning
+        // Recalculate on window resize
         let resizeTimeout;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
-                // Ensure index is within new bounds if view changes
-                const maxIndex = this.cards.length - this.getVisibleCardsCount();
+                const maxIndex = Math.max(0, this.visibleCards.length - this.getVisibleCardsCount());
                 if (this.currentIndex > maxIndex) {
                     this.currentIndex = maxIndex;
                 }
@@ -440,35 +449,85 @@ class ProjectsCarousel {
             }, 100);
         });
 
-        // Auto-play (optional - uncomment to enable)
-        // this.startAutoPlay();
-
         // Pause auto-play on hover
         this.track.addEventListener('mouseenter', () => this.stopAutoPlay());
         this.track.addEventListener('mouseleave', () => this.startAutoPlay());
     }
 
+    setupFilters() {
+        if (!this.filterButtons || this.filterButtons.length === 0) return;
+
+        this.filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.getAttribute('data-filter');
+                if (filter === this.currentFilter) return;
+
+                // Update active state on buttons
+                this.filterButtons.forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
+
+                this.applyFilter(filter);
+            });
+        });
+    }
+
+    applyFilter(filter) {
+        this.currentFilter = filter;
+        this.currentIndex = 0;
+
+        // Filter cards
+        this.visibleCards = this.allCards.filter(card => {
+            const roles = card.getAttribute('data-roles') || '';
+            const match = filter === 'all' || roles.split(' ').includes(filter);
+
+            if (match) {
+                card.classList.remove('is-hidden');
+                card.classList.remove('filtered-in');
+                // Trigger reflow for animation restart
+                void card.offsetWidth;
+                card.classList.add('filtered-in');
+            } else {
+                card.classList.add('is-hidden');
+                card.classList.remove('filtered-in');
+            }
+            return match;
+        });
+
+        // Reset track position smoothly
+        this.track.style.transform = 'translateX(0px)';
+
+        // Recreate dots for filtered cards
+        this.createDots();
+
+        // Update carousel state
+        this.updateCarousel();
+    }
+
     createDots() {
         if (!this.dotsContainer) return;
 
-        // Clear existing dots
         this.dotsContainer.innerHTML = '';
 
-        // Create a dot for each card
-        this.cards.forEach((_, index) => {
+        if (this.visibleCards.length <= 1) {
+            this.dots = [];
+            return;
+        }
+
+        this.visibleCards.forEach((_, index) => {
             const dot = document.createElement('button');
             dot.classList.add('carousel-dot');
             dot.setAttribute('data-index', index);
             dot.setAttribute('aria-label', `Go to project ${index + 1}`);
 
-            // Add click event listener
             dot.addEventListener('click', () => this.goToSlide(index));
-
             this.dotsContainer.appendChild(dot);
         });
 
-        // Update dots reference
-        this.dots = document.querySelectorAll('.carousel-dot');
+        this.dots = this.dotsContainer.querySelectorAll('.carousel-dot');
     }
 
     getVisibleCardsCount() {
@@ -479,28 +538,33 @@ class ProjectsCarousel {
     }
 
     updateCarousel() {
-        // Calculate translation using actual card width for accurate positioning
-        if (this.cards.length > 0) {
-            const firstCard = this.cards[0];
+        if (this.visibleCards.length === 0) return;
+
+        const visibleCount = this.getVisibleCardsCount();
+        const maxIndex = Math.max(0, this.visibleCards.length - visibleCount);
+
+        if (this.currentIndex > maxIndex) {
+            this.currentIndex = maxIndex;
+        }
+
+        // Calculate translation using first visible card's offsetWidth
+        const firstCard = this.visibleCards[0];
+        if (firstCard) {
             const cardWidth = firstCard.offsetWidth;
-            const gap = 30; // Gap from CSS (30px)
+            const gap = 30;
             const offset = -(this.currentIndex * (cardWidth + gap));
             this.track.style.transform = `translateX(${offset}px)`;
         }
 
-        // Update active card class (highlight visible cards)
-        const visibleCount = this.getVisibleCardsCount();
-        this.cards.forEach((card, index) => {
+        // Update active class on visible cards
+        this.allCards.forEach(card => card.classList.remove('active'));
+        this.visibleCards.forEach((card, index) => {
             if (index >= this.currentIndex && index < this.currentIndex + visibleCount) {
                 card.classList.add('active');
-            } else {
-                card.classList.remove('active');
             }
         });
 
         // Update dots
-        // Note: Dots mapping logic works best for 1-to-1 or if we have dots per page.
-        // For simplicity, we keep 1 dot per item but highlight the "starting" item's dot.
         this.dots.forEach((dot, index) => {
             if (index === this.currentIndex) {
                 dot.classList.add('active');
@@ -509,21 +573,27 @@ class ProjectsCarousel {
             }
         });
 
-        // Update button states
+        // Update button disabled states
         this.updateButtons();
     }
 
     updateButtons() {
-        // Disable prev button at start
+        const visibleCount = this.getVisibleCardsCount();
+        const maxIndex = Math.max(0, this.visibleCards.length - visibleCount);
+
+        // If all items fit within current view, disable both navigation buttons
+        if (this.visibleCards.length <= visibleCount) {
+            this.prevBtn?.setAttribute('disabled', 'true');
+            this.nextBtn?.setAttribute('disabled', 'true');
+            return;
+        }
+
         if (this.currentIndex === 0) {
             this.prevBtn?.setAttribute('disabled', 'true');
         } else {
             this.prevBtn?.removeAttribute('disabled');
         }
 
-        // Disable next button at end
-        // End is reached when the last group of cards is fully visible
-        const maxIndex = this.cards.length - this.getVisibleCardsCount();
         if (this.currentIndex >= maxIndex) {
             this.nextBtn?.setAttribute('disabled', 'true');
         } else {
@@ -532,7 +602,7 @@ class ProjectsCarousel {
     }
 
     next() {
-        const maxIndex = this.cards.length - this.getVisibleCardsCount();
+        const maxIndex = Math.max(0, this.visibleCards.length - this.getVisibleCardsCount());
         if (this.currentIndex < maxIndex) {
             this.currentIndex++;
             this.updateCarousel();
@@ -547,9 +617,8 @@ class ProjectsCarousel {
     }
 
     goToSlide(index) {
-        // Ensure we don't go out of bounds (past the last full group)
-        const maxIndex = this.cards.length - this.getVisibleCardsCount();
-        this.currentIndex = Math.min(index, maxIndex);
+        const maxIndex = Math.max(0, this.visibleCards.length - this.getVisibleCardsCount());
+        this.currentIndex = Math.min(Math.max(0, index), maxIndex);
         this.updateCarousel();
     }
 
@@ -559,39 +628,33 @@ class ProjectsCarousel {
 
         this.track.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
-        });
+        }, { passive: true });
 
         this.track.addEventListener('touchend', (e) => {
             touchEndX = e.changedTouches[0].screenX;
-            this.handleSwipe();
-        });
-
-        const handleSwipe = () => {
             const swipeThreshold = 50;
             const diff = touchStartX - touchEndX;
 
             if (Math.abs(diff) > swipeThreshold) {
                 if (diff > 0) {
-                    // Swipe left - go to next
                     this.next();
                 } else {
-                    // Swipe right - go to prev
                     this.prev();
                 }
             }
-        };
-
-        this.handleSwipe = handleSwipe;
+        }, { passive: true });
     }
 
     startAutoPlay() {
         this.stopAutoPlay();
         this.autoPlayInterval = setInterval(() => {
-            const maxIndex = this.cards.length - this.getVisibleCardsCount();
-            if (this.currentIndex < maxIndex) {
-                this.next();
-            } else {
-                this.goToSlide(0); // Loop back to start
+            const maxIndex = Math.max(0, this.visibleCards.length - this.getVisibleCardsCount());
+            if (maxIndex > 0) {
+                if (this.currentIndex < maxIndex) {
+                    this.next();
+                } else {
+                    this.goToSlide(0);
+                }
             }
         }, this.autoPlayDelay);
     }

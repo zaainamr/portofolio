@@ -920,6 +920,54 @@
                 <h2 class="section-title">Featured Projects</h2>
             </div>
 
+            <!-- Project Role Filter Tabs -->
+            <div class="project-filters-wrapper">
+                <div class="project-filter-list" role="tablist" aria-label="Filter projects by role">
+                    <button class="project-filter-btn active" data-filter="all" role="tab" aria-selected="true">
+                        <span class="filter-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                        </span>
+                        <span class="filter-label">All Projects</span>
+                        <span class="filter-count">7</span>
+                    </button>
+                    <button class="project-filter-btn" data-filter="system-analyst" role="tab" aria-selected="false">
+                        <span class="filter-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </span>
+                        <span class="filter-label">System & Business Analyst</span>
+                        <span class="filter-count">5</span>
+                    </button>
+                    <button class="project-filter-btn" data-filter="ui-ux" role="tab" aria-selected="false">
+                        <span class="filter-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 19l7 2-2.11-5.78L22 10l-5.89-.61L14 4l-2.11 5.39L6 10l5.11 5.22L9 21z"></path>
+                            </svg>
+                        </span>
+                        <span class="filter-label">UI/UX & Product Design</span>
+                        <span class="filter-count">6</span>
+                    </button>
+                    <button class="project-filter-btn" data-filter="web-dev" role="tab" aria-selected="false">
+                        <span class="filter-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </span>
+                        <span class="filter-label">Web & Software Dev</span>
+                        <span class="filter-count">2</span>
+                    </button>
+                </div>
+            </div>
+
             <div class="projects-carousel-wrapper">
                 <button class="carousel-btn carousel-btn-prev" aria-label="Previous project">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -930,11 +978,17 @@
 
                 <div class="projects-carousel">
                     <div class="carousel-track">
-                        <div class="project-card">
+                        <!-- Project 1: XENA -->
+                        <div class="project-card" data-roles="system-analyst web-dev ui-ux">
                             <div class="project-image">
+                                <div class="project-role-badge">
+                                    <span class="role-chip">System Analyst</span>
+                                    <span class="role-chip">Web Dev</span>
+                                    <span class="role-chip">UI/UX</span>
+                                </div>
                                 <div class="project-overlay">
                                     <div class="project-links">
-                                        <a href="xena-detail.html" class="project-link">
+                                        <a href="xena-detail.html" class="project-link" aria-label="View XENA Details">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <path
                                                     d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
@@ -943,7 +997,7 @@
                                             </svg>
                                         </a>
                                         <a href="https://github.com/zaainamr/ta-xena" target="_blank"
-                                            rel="noopener noreferrer" class="project-link">
+                                            rel="noopener noreferrer" class="project-link" aria-label="View XENA GitHub">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <path
                                                     d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
@@ -971,11 +1025,16 @@
                             </div>
                         </div>
 
-                        <div class="project-card">
+                        <!-- Project 2: MCORDER -->
+                        <div class="project-card" data-roles="system-analyst web-dev">
                             <div class="project-image">
+                                <div class="project-role-badge">
+                                    <span class="role-chip">System Analyst</span>
+                                    <span class="role-chip">Web Dev</span>
+                                </div>
                                 <div class="project-overlay">
                                     <div class="project-links">
-                                        <a href="mcorder-detail.html" class="project-link">
+                                        <a href="mcorder-detail.html" class="project-link" aria-label="View McOrder Details">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <path
                                                     d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
@@ -984,7 +1043,7 @@
                                             </svg>
                                         </a>
                                         <a href="https://github.com/RendyRadithya/McOrder" target="_blank"
-                                            rel="noopener noreferrer" class="project-link">
+                                            rel="noopener noreferrer" class="project-link" aria-label="View McOrder GitHub">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <path
                                                     d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
@@ -1016,11 +1075,16 @@
                             </div>
                         </div>
 
-                        <div class="project-card">
+                        <!-- Project 3: Dashboard Order -->
+                        <div class="project-card" data-roles="ui-ux system-analyst">
                             <div class="project-image">
+                                <div class="project-role-badge">
+                                    <span class="role-chip">UI/UX Design</span>
+                                    <span class="role-chip">System Analyst</span>
+                                </div>
                                 <div class="project-overlay">
                                     <div class="project-links">
-                                        <a href="dashboard-detail.html" class="project-link">
+                                        <a href="dashboard-detail.html" class="project-link" aria-label="View Dashboard Details">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <path
                                                     d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
@@ -1028,7 +1092,6 @@
                                                     stroke-linejoin="round" />
                                             </svg>
                                         </a>
-
                                     </div>
                                 </div>
                                 <img src="img/dashboard-order.png" alt="Dashboard Order - Telkomsel"
@@ -1049,11 +1112,15 @@
                         </div>
 
                         <!-- Project 4: Hadirin - Employee Attendance App -->
-                        <div class="project-card">
+                        <div class="project-card" data-roles="ui-ux">
                             <div class="project-image">
+                                <div class="project-role-badge">
+                                    <span class="role-chip">UI/UX Design</span>
+                                    <span class="role-chip">Product Research</span>
+                                </div>
                                 <div class="project-overlay">
                                     <div class="project-links">
-                                        <a href="hadirin-detail.html" class="project-link">
+                                        <a href="hadirin-detail.html" class="project-link" aria-label="View Hadirin Details">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <path
                                                     d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
@@ -1061,7 +1128,6 @@
                                                     stroke-linejoin="round" />
                                             </svg>
                                         </a>
-
                                     </div>
                                 </div>
                                 <img src="img/hadirin-preview.png" alt="Hadirin - Employee Attendance App"
@@ -1085,8 +1151,13 @@
                             </div>
                         </div>
 
-                        <div class="project-card">
+                        <!-- Project 5: DSC Research -->
+                        <div class="project-card" data-roles="ui-ux system-analyst">
                             <div class="project-image">
+                                <div class="project-role-badge">
+                                    <span class="role-chip">UX Research</span>
+                                    <span class="role-chip">System Analyst</span>
+                                </div>
                                 <div class="project-overlay">
                                     <div class="project-links">
                                         <a href="dsc-research-detail.html" class="project-link"
@@ -1094,14 +1165,6 @@
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <path
                                                     d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
-                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                            </svg>
-                                        </a>
-                                        <a href="#" class="project-link">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                <path
-                                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
                                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                     stroke-linejoin="round" />
                                             </svg>
@@ -1129,8 +1192,13 @@
                             </div>
                         </div>
 
-                        <div class="project-card">
+                        <!-- Project 6: Ramayana App -->
+                        <div class="project-card" data-roles="ui-ux system-analyst">
                             <div class="project-image">
+                                <div class="project-role-badge">
+                                    <span class="role-chip">UI/UX Design</span>
+                                    <span class="role-chip">System Analyst</span>
+                                </div>
                                 <div class="project-overlay">
                                     <div class="project-links">
                                         <a href="ramayana-detail.html" class="project-link"
@@ -1142,7 +1210,6 @@
                                                     stroke-linejoin="round" />
                                             </svg>
                                         </a>
-
                                     </div>
                                 </div>
                                 <img src="img/ramayana-app.png" alt="Ramayana E-Commerce App"
@@ -1166,8 +1233,13 @@
                             </div>
                         </div>
 
-                        <div class="project-card">
+                        <!-- Project 7: WASH NOW -->
+                        <div class="project-card" data-roles="ui-ux">
                             <div class="project-image">
+                                <div class="project-role-badge">
+                                    <span class="role-chip">UI/UX Design</span>
+                                    <span class="role-chip">Mobile App</span>
+                                </div>
                                 <div class="project-overlay">
                                     <div class="project-links">
                                         <a href="washnow-detail.html" class="project-link"
@@ -1179,7 +1251,6 @@
                                                     stroke-linejoin="round" />
                                             </svg>
                                         </a>
-
                                     </div>
                                 </div>
                                 <img src="img/washnow-preview.png" alt="WASH NOW Laundry App"

@@ -1999,6 +1999,180 @@ section {
 }
 
 /* ===================================
+   PROJECT ROLE FILTERS
+   =================================== */
+.project-filters-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 5;
+}
+
+.project-filter-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    max-width: 100%;
+}
+
+.project-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 40px;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-smooth);
+    user-select: none;
+    outline: none;
+    white-space: nowrap;
+}
+
+.project-filter-btn:hover {
+    color: var(--text-primary);
+    background: rgba(102, 126, 234, 0.1);
+    border-color: rgba(102, 126, 234, 0.3);
+    transform: translateY(-2px);
+}
+
+.project-filter-btn.active {
+    background: var(--primary-gradient);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.35);
+    font-weight: 600;
+    transform: translateY(-2px);
+}
+
+.project-filter-btn .filter-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.85;
+}
+
+.project-filter-btn.active .filter-icon {
+    opacity: 1;
+}
+
+.project-filter-btn .filter-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: inherit;
+    line-height: 1;
+}
+
+.project-filter-btn.active .filter-count {
+    background: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+}
+
+/* Role Badges on Project Card */
+.project-role-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    z-index: 8;
+    pointer-events: none;
+    max-width: calc(100% - 28px);
+}
+
+.role-chip {
+    display: inline-block;
+    padding: 4px 10px;
+    background: rgba(10, 10, 18, 0.78);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Filter Animation for Cards */
+.project-card.is-hidden {
+    display: none !important;
+}
+
+.project-card.filtered-in {
+    animation: filterCardIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes filterCardIn {
+    from {
+        opacity: 0;
+        transform: scale(0.96) translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Light theme overrides for filters */
+.light-theme .project-filter-list {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.light-theme .project-filter-btn {
+    color: var(--text-secondary);
+}
+
+.light-theme .project-filter-btn:hover {
+    background: rgba(102, 126, 234, 0.12);
+    color: var(--primary-color);
+}
+
+.light-theme .project-filter-btn.active {
+    background: var(--primary-gradient);
+    color: #ffffff;
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.28);
+}
+
+.light-theme .project-filter-btn .filter-count {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.light-theme .project-filter-btn.active .filter-count {
+    background: rgba(255, 255, 255, 0.28);
+    color: #ffffff;
+}
+
+.light-theme .role-chip {
+    background: rgba(255, 255, 255, 0.88);
+    border-color: rgba(0, 0, 0, 0.12);
+    color: #1e293b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ===================================
    PROJECTS CAROUSEL
    =================================== */
 .projects-carousel-wrapper {
@@ -2248,6 +2422,32 @@ section {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    .project-filters-wrapper {
+        margin-bottom: 25px;
+    }
+
+    .project-filter-list {
+        gap: 8px;
+        padding: 6px;
+        border-radius: 20px;
+    }
+
+    .project-filter-btn {
+        padding: 7px 12px;
+        font-size: 0.8rem;
+        gap: 6px;
+    }
+
+    .project-filter-btn .filter-icon svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .role-chip {
+        font-size: 0.65rem;
+        padding: 3px 8px;
+    }
+
     .scroll-indicator {
         display: none;
     }
